@@ -1,0 +1,119 @@
+body{
+    padding: 0;
+    margin:0
+}
+.Container_main{
+    display: flex;
+    flex-direction: column;
+    background-color: beige;
+}
+.Container_Header{
+    display: flex;
+    flex-direction: row;
+    background-color: aqua;
+
+}
+.Container_Header__editTitle{
+    font-size: 25px;
+    font-family: 'Times New Roman', Times, serif;
+    padding-left: 600px;
+    font-weight: bold;
+}
+
+@media screen and (max-width: 3500px) {
+    body {
+         width:100%;
+          
+           /* Cambia el ancho máximo del contenido para pantallas pequeñas */
+          
+     }
+     .Container_Header__editTitle{ 
+         font-size: 30px;
+         margin-left: 400px;
+     }
+ }
+
+@media screen and (max-width: 3000px) {
+    body {
+         width:100%;
+        
+           /* Cambia el ancho máximo del contenido para pantallas pequeñas */
+          
+     }
+     .Container_Header__editTitle{ 
+         font-size: 30px;
+         margin-left: 500px;
+     }
+ }
+
+@media screen and (max-width: 2000px) {
+    body {
+         width:100%;
+          
+           /* Cambia el ancho máximo del contenido para pantallas pequeñas */
+          
+     }
+     .Container_Header__editTitle{ 
+         font-size: 30px;
+         margin-left: 40px;
+     }
+ }
+ @media screen and (max-width: 1500px) {
+    body {
+         width:100%;
+          
+           /* Cambia el ancho máximo del contenido para pantallas pequeñas */
+          
+     }
+     .Container_Header__editTitle{ 
+         font-size: 30px;
+         margin-left: 10px;
+     }
+ }
+
+@media screen and (max-width: 1100px) {
+   body {
+        width:100%;
+         
+          /* Cambia el ancho máximo del contenido para pantallas pequeñas */
+         
+    }
+    .Container_Header__editTitle{ 
+        font-size: 30px;
+        margin-left: -190px;
+    }
+}
+@media screen and (max-width: 700px ) {
+    body {
+         width:80%; /* Cambia el ancho máximo del contenido para pantallas pequeñas */
+        
+        }
+        .Container_Header__editTitle{
+            font-size: 25px;
+            margin-left: -450px;
+        }
+ }
+ @media screen and (max-width: 480px) {
+    body{
+         width:50%; /* Cambia el ancho máximo del contenido para pantallas pequeñas */
+        
+        }
+        .Container_Header__editTitle{
+           font-size: 25px;
+           margin-left: -450px;
+ }
+}
+@media screen and (max-width: 300px) {
+    body{
+         width:50%; /* Cambia el ancho máximo del contenido para pantallas pequeñas */
+       
+        }
+        .Container_Header__editTitle{
+           font-size: 25px;
+           margin-left: -500px;
+ }
+}
+
+
+/* Media query para pantallas muy pequeñas (p. ej., smartphones en posición vertical) */
+
