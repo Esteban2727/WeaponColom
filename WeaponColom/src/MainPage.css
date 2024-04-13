@@ -10,16 +10,29 @@ body{
 .Container_Header{
     display: flex;
     flex-direction: row;
-    background-color: aqua;
+    background-color: rgb(155, 149, 149);
+    justify-content: space-between;
 
+
+}
+.Container_Header__modals{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
 }
 .Container_Header__editTitle{
     font-size: 25px;
     font-family: 'Times New Roman', Times, serif;
     padding-left: 600px;
     font-weight: bold;
+    
 }
-
+.Container_Header__buycar{
+ margin-right: 20px;
+ padding-top: 20px;
+ height:2em ;
+ width: 2em;
+}
 @media screen and (max-width: 3500px) {
     body {
          width:100%;
@@ -85,7 +98,7 @@ body{
 }
 @media screen and (max-width: 700px ) {
     body {
-         width:80%; /* Cambia el ancho máximo del contenido para pantallas pequeñas */
+         width:100%; /* Cambia el ancho máximo del contenido para pantallas pequeñas */
         
         }
         .Container_Header__editTitle{
