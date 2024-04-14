@@ -23,16 +23,34 @@ body{
 .Container_Header__editTitle{
     font-size: 25px;
     font-family: 'Times New Roman', Times, serif;
-    padding-left: 600px;
+    padding-left: 100px;
     font-weight: bold;
     
 }
 .Container_Header__buycar{
  margin-right: 20px;
- padding-top: 20px;
- height:2em ;
- width: 2em;
+ padding-top: 5px;
+ padding-left: 0px;
+
 }
+
+.Container_header__imageLOGO {
+    animation: rotate 5s linear infinite; /* Nombre de la animación, duración, temporización, iteraciones */
+  
+}
+  
+  @keyframes rotate {
+    from {
+      transform: rotate(0deg); /* Inicia la rotación desde 0 grados */
+    }
+    to {
+      transform: rotate(360deg); /* Termina la rotación en 360 grados */
+    }
+  }
+
+
+
+
 @media screen and (max-width: 3500px) {
     body {
          width:100%;
@@ -44,6 +62,10 @@ body{
          font-size: 30px;
          margin-left: 400px;
      }
+     .Container_Header__buycar{
+        margin-left: -100px;
+     }
+
  }
 
 @media screen and (max-width: 3000px) {
@@ -57,6 +79,9 @@ body{
          font-size: 30px;
          margin-left: 500px;
      }
+     .Container_Header__buycar{
+        margin-left: 20px;
+     }
  }
 
 @media screen and (max-width: 2000px) {
@@ -68,7 +93,10 @@ body{
      }
      .Container_Header__editTitle{ 
          font-size: 30px;
-         margin-left: 40px;
+         margin-left: 0px;
+     }
+     .Container_Header__buycar{
+
      }
  }
  @media screen and (max-width: 1500px) {
@@ -80,7 +108,10 @@ body{
      }
      .Container_Header__editTitle{ 
          font-size: 30px;
-         margin-left: 10px;
+         margin-left: 0px;
+     }
+     .Container_Header__buycar{
+        margin-left: 20px;
      }
  }
 
@@ -88,12 +119,14 @@ body{
    body {
         width:100%;
          
-          /* Cambia el ancho máximo del contenido para pantallas pequeñas */
-         
     }
     .Container_Header__editTitle{ 
         font-size: 30px;
-        margin-left: -190px;
+        margin-left: -300px;
+    }
+    .Container_Header__buycar{
+        margin-left: -120px;
+        
     }
 }
 @media screen and (max-width: 700px ) {
@@ -103,27 +136,36 @@ body{
         }
         .Container_Header__editTitle{
             font-size: 25px;
-            margin-left: -450px;
+            margin-left: 0px;
+        }
+        .Container_Header__buycar{
+            margin-left: 20px;
         }
  }
  @media screen and (max-width: 480px) {
     body{
-         width:50%; /* Cambia el ancho máximo del contenido para pantallas pequeñas */
+         width:100%; /* Cambia el ancho máximo del contenido para pantallas pequeñas */
         
         }
         .Container_Header__editTitle{
            font-size: 25px;
-           margin-left: -450px;
+           margin-left: 0px;
+ }
+ .Container_Header__buycar{
+
  }
 }
 @media screen and (max-width: 300px) {
     body{
-         width:50%; /* Cambia el ancho máximo del contenido para pantallas pequeñas */
+         width:100%; /* Cambia el ancho máximo del contenido para pantallas pequeñas */
        
         }
         .Container_Header__editTitle{
            font-size: 25px;
-           margin-left: -500px;
+           margin-left: 0px;
+ }
+ .Container_Header__buycar{
+
  }
 }
 
