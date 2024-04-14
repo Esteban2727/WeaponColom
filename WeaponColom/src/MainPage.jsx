@@ -4,9 +4,9 @@ import { BsFillPersonPlusFill } from "react-icons/bs";
 import { BsPersonRaisedHand } from "react-icons/bs";
 import  image from "./assets/image1.png"
 import { useState } from 'react';
-import Modals from "./modals";
-import ModalsRegister from "./modalsRegister";
-import ModalsSignIn from "./modasSignin";
+import Modals from "./components/carrito/modals";
+import ModalsRegister from "./components/registro/modalsRegister";
+import ModalsSignIn from "./components/sing in/modasSignin";
 export default function Mainpage(){
     const [show, setShow] = useState(false);
     const [show1, setShow1] = useState(false);

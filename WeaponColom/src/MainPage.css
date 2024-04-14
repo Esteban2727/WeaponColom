@@ -21,10 +21,16 @@ body{
     gap: 20px;
 }
 .Container_Header__editTitle{
-    font-size: 25px;
-    font-family: 'Times New Roman', Times, serif;
-    padding-left: 100px;
-    font-weight: bold;
+    font-family: "Arial Black", Gadget, sans-serif;
+    font-size: 31px;
+    letter-spacing: 2px;
+    word-spacing: 2px;
+    color: #000000;
+    font-weight: 700;
+    text-decoration: none solid rgb(68, 68, 68);
+    font-style: normal;
+    font-variant: small-caps;
+    text-transform: uppercase;
     
 }
 .Container_Header__buycar{

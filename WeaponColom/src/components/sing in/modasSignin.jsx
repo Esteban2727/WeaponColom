@@ -15,7 +15,8 @@ export default function ModalsSignIn({show2,handleClose2}){
       
       <div className='input'>
       <input type="number" className='name1' placeholder='Número de celular o correo electrónico'></input>
-      <input  type="password"className='name1' placeholder='Contraseña nueva'></input>
+      <input  type="password"className='name1' placeholder='Contraseña '></input>
+      <button type="button" class="btn btn-success">INGRESAR</button>
       
 
       </div>
