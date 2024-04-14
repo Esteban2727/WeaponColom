@@ -2,18 +2,22 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 
 import { useState } from 'react';
-export default function Modals({show,handleClose}){
+export default function ModalsSignIn({show2,handleClose2}){
 
 
-    return <Modal show={show} onHide={handleClose}>
+    return <Modal show={show2} onHide={handleClose2}>
         <div className='container_edit'>
     <Modal.Header className='btn_close' closeButton ></Modal.Header>
-      <Modal.Title className='edit_title'>Carrito de compras</Modal.Title>
+      <Modal.Title className='edit_title'>Ingresar</Modal.Title>
+      
+      
       <hr className='edit_hr'></hr>
       
       <div className='input'>
-      <button type="button" class="btn btn-success">pagar</button>
+      <input type="number" className='name1' placeholder='Número de celular o correo electrónico'></input>
+      <input  type="password"className='name1' placeholder='Contraseña nueva'></input>
       
+
       </div>
       </div>
     
