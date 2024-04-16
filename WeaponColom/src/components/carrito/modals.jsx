@@ -1,5 +1,6 @@
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
+import "./modal.css"
 
 import { useState } from 'react';
 export default function Modals({show,handleClose}){
@@ -12,8 +13,9 @@ export default function Modals({show,handleClose}){
       <hr className='edit_hr'></hr>
       
       <div className='input'>
+
       <button type="button" class="btn btn-success">pagar</button>
-      
+
       </div>
       </div>
     

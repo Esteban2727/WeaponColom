@@ -1,0 +1,59 @@
+.container_edit{
+    
+}
+
+
+.cuadro{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 400px;
+    height: 400px;
+    background-color: rgb(215, 210, 226);
+    margin-left: 60px;
+    border-radius: 5px;
+    box-shadow: -11px 0px 57px 4px rgba(0,0,0,0.75);
+-webkit-box-shadow: -11px 0px 57px 4px rgba(0,0,0,0.75);
+-moz-box-shadow: -11px 0px 57px 4px rgba(0,0,0,0.75);
+justify-content: space-between;
+margin-top: -10px;
+padding-left: 20px;
+
+
+}
+.edit_log{
+    width: 150px;
+    height: 150px;
+    margin-left: 100px;
+}
+.input_2{
+    display: flex;
+    flex-direction: column;
+   gap: 20px;
+    padding-left: 30px;
+    
+}
+
+.edit_button{
+    width: 120px;
+}
+.button2{
+    display: flex;
+    flex-direction: column;
+    padding-left: 100px;
+    padding-right: 150px;
+    margin-top: 30px;
+    
+}
+.name11{
+    padding-top: 7px;
+    padding-bottom: 7px;
+    width: 300px;
+    border-radius: 5px;
+    border: none;
+}
+.edit_title_Ingresar{
+    padding-left: 180px;
+    
+    
+}

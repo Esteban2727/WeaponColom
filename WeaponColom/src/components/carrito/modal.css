@@ -1,0 +1,12 @@
+.edit_title{
+    padding-left: 130px;
+}
+.btn-success{
+    padding-left: 30px;
+    padding-right: 30px;
+}
+.input{
+ display: flex;
+ flex-direction: row;
+ margin-left: 200px;
+}
