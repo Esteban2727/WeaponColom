@@ -15,6 +15,32 @@ body{
 
 
 }
+.redireccion{
+    padding-left: 250px;
+    padding-top: 20px;
+    display: flex;
+    flex-direction: row;
+    gap: 70px;
+}
+.edit_categorias{
+    width: 200px;
+    height: 40px;
+    
+    border-radius: 10%;
+}
+
+.edit_image_categoria{
+    width: 90px;
+    height: 40px;
+}
+.edit_categorias:hover{
+    animation-name: size;
+    animation-duration: 4s;
+    animation-delay: 0;
+    animation-timing-function: linear;
+ 
+   
+}
 .Container_Header__modals{
     display: flex;
     flex-direction: row;
@@ -44,6 +70,29 @@ body{
     animation: rotate 5s linear infinite; /* Nombre de la animación, duración, temporización, iteraciones */
   
 }
+@keyframes size {
+    0%{
+        transform: scale(1);   
+    }
+    20%{
+        transform: scale(1.2);   
+    }
+    30%{
+        transform: scale(1.3);   
+    }
+    60%{
+        transform: scale(1.4);   
+    }
+    80%{
+        transform: scale(1.5);   
+    }
+    100%{
+        transform: scale(1.6);   
+    }
+    
+     
+    }
+    
   
   @keyframes rotate {
     from {
