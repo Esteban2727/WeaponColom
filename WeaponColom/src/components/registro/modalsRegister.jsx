@@ -39,11 +39,11 @@ const registerHandler=async(e)=>{
     return <Modal show={show1} onHide={handleClose1}>
         <div className='container_edit'>
     <Modal.Header className='btn_close' closeButton ></Modal.Header>
-      <Modal.Title className='edit_title1'>Registrarte</Modal.Title>
+      <Modal.Title className='edit_title1' style={{fontSize:'30px', fontWeight:'bold' }}>Registrarte</Modal.Title>
       <p className='edit'>Es rápido y fácil.</p>
       
       <hr className='edit_hr'></hr>
-      
+      <div className='cuadro1'>
       <div className='input_1'>
       <input type='text' className='name'  name='nombre' value={values1.nombre} placeholder='Nombre'onChange={catchHandler} ></input>
       <input type="text"  className='name' name='apellido' value={values1.apellido} placeholder='Apellido' onChange={catchHandler}></input>
@@ -52,6 +52,7 @@ const registerHandler=async(e)=>{
       <input  type="password"className='name1' name='password' value={values1.password} placeholder='Contraseña nueva' onChange={catchHandler}></input>
       <div className='button1'>
       <Button onClick={registerHandler}  >REGISTRARSE</Button>
+      </div>
       </div>
       </div>
       </div>
