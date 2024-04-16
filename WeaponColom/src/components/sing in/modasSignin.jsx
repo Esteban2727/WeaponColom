@@ -1,10 +1,37 @@
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
+import axios from 'axios'
 import "./sigin.css"
 import { useState } from 'react';
 import { IoPersonCircle } from "react-icons/io5";
-export default function ModalsSignIn({show2,handleClose2}){
 
+export default function ModalsSignIn({show2,handleClose2}){
+    
+      const[values, SetValues] = useState({
+        correo:"",
+        passwords:"",
+      })
+    
+     function FunctionHandle(event){
+      const {name,value}= event.target
+      SetValues({
+        ...values,
+        [name]:value,
+      })
+    }
+  
+  
+  const otherHandle=async(e)=>{
+    e.preventDefault()
+    console.log(values)
+    const response = await fetch('http://localhost:8000', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json', 
+      },
+      body: JSON.stringify(values), 
+    })
+  }
 
     return <Modal show={show2} onHide={handleClose2}>
         <div className='container_edit'>
@@ -16,11 +43,15 @@ export default function ModalsSignIn({show2,handleClose2}){
       <div className='cuadro'>
       <IoPersonCircle  className='edit_log'/>
       <div className='input_2 ' >
-      <input type="email" className='name11' placeholder='Número de celular o correo electrónico'></input>
-      <input  type="password"className='name11' placeholder='Contraseña '></input>
+       
+      <input type="email"  name='correo'  value={values.email1}  placeholder='Número de celular o correo electrónico'className='name11' onChange={FunctionHandle}></input>
+      <input  type="password"   name='passwords'  value={values.password} placeholder='Contraseña ' className='name11' onChange={FunctionHandle}  ></input>
       <div className='button2'>
-      <button type="button" class="btn btn-success edit_button">INGRESAR</button>
+      <button type="button" className="btn btn-success edit_button" onClick={otherHandle} >INGRESAR</button>
+      
+     
       </div>
+     
       </div>
       </div>
       </div>
