@@ -20,12 +20,22 @@ export default function ModalsRegister({show1,handleClose1}){
     ...values1,
     [name]:value
   })
+
 }
   
   
 const registerHandler=async(e)=>{
   e.preventDefault()
-  console.log(values1)
+  
+  if( values1.correo== "" ||  values1.nombre== "" ||  values1.apellido== "" || values1.nomusuario=="" || values1.password== ""){
+    return alert("no puede dejar campos vacios ")
+  }
+ else if(values1.nomusuario.includes(" ") ){
+    return alert("no puede tener espacios el nombre de usuario ")
+  }
+  else if(values1.correo.includes(" ") ){
+    return alert("no puede tener espacios el correo ")
+  }
   const response = await fetch('http://localhost:8000', {
     method: 'POST',
     headers: {
@@ -33,6 +43,8 @@ const registerHandler=async(e)=>{
     },
     body: JSON.stringify(values1), 
   })
+
+  
 }
 
 

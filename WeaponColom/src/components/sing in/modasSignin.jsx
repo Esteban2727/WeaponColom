@@ -4,6 +4,7 @@ import axios from 'axios'
 import "./sigin.css"
 import { useState } from 'react';
 import { IoPersonCircle } from "react-icons/io5";
+import { Link } from 'react-router-dom';
 
 export default function ModalsSignIn({show2,handleClose2}){
     
@@ -31,6 +32,7 @@ export default function ModalsSignIn({show2,handleClose2}){
       },
       body: JSON.stringify(values), 
     })
+   
   }
 
     return <Modal show={show2} onHide={handleClose2}>
@@ -46,9 +48,10 @@ export default function ModalsSignIn({show2,handleClose2}){
        
       <input type="email"  name='correo'  value={values.email1}  placeholder='Número de celular o correo electrónico'className='name11' onChange={FunctionHandle}></input>
       <input  type="password"   name='passwords'  value={values.password} placeholder='Contraseña ' className='name11' onChange={FunctionHandle}  ></input>
+      <a><Link to={  "/recuperarPassword"  /* "#" */    } style={{"padding-left":"60px"}}>¿olvide mi contraseña?</Link></a>
       <div className='button2'>
       <button type="button" className="btn btn-success edit_button" onClick={otherHandle} >INGRESAR</button>
-      
+      s
      
       </div>
      

@@ -2,10 +2,13 @@ body{
     padding: 0;
     margin:0
 }
+
 .Container_main{
     display: flex;
+    width: 100%;
+    height: 100%;
     flex-direction: column;
-    background-color: beige;
+   background-color: rgb(220, 211, 211);;
 }
 .Container_Header{
     display: flex;
@@ -64,6 +67,83 @@ body{
  padding-top: 5px;
  padding-left: 0px;
 
+}
+.size_carrusel{
+    
+    margin-left: 35%;
+    margin-top: 5%;
+    display: block;
+    width:30% ;
+    height: 30%;
+}
+.edit1{
+    width: 200px;
+    height: 240px;
+}
+.edit2{
+    height: 240px;
+}
+.edit3{
+    height: 240px;
+}
+.container_footer{
+    display: flex;
+    flex-direction: row;
+    margin-top: 10.25%;
+    width: 100%;
+    height: 139px;
+    background-color: rgb(155, 149, 149);
+   
+}
+.container_footer__info{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: space-between;
+    padding-left: 10px;
+    
+}
+.buttons_redes{
+    width: 30px;
+    height: 40px;
+    margin-top: 80px;
+    margin-left:30px;
+}
+.other_container{
+    display: flex;
+    flex-direction: column;
+    margin-left: 830px;
+    padding-top: 10px;
+    width: 300px;
+    height: 130px;
+    margin-top: 2px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Agrega una sombra */
+    transition: box-shadow 0.3s ease; 
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+outline: 2px solid rgba(0, 0, 0, 0.8);
+transition: outline 0.3s ease;
+outline: none;
+background-color: rgb(155, 149, 149);
+
+
+
+}
+
+.edit_info_container{
+    font-size: 15px;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    color: black;
+    margin-top: -5px;
+    padding-left: 10px;
+}
+.onemore{
+    color: black;
+    margin-top: -15px;
+
+}
+.edit_hr2{
+margin-top: -15px;
 }
 
 .Container_header__imageLOGO {
@@ -153,7 +233,7 @@ body{
      .Container_Header__buycar{
 
      }
- }
+}
  @media screen and (max-width: 1500px) {
     body {
          width:100%;
@@ -166,6 +246,9 @@ body{
          margin-left: 0px;
      }
      .Container_Header__buycar{
+        margin-left: 20px;
+     }
+     .other_container{
         margin-left: 20px;
      }
  }
@@ -196,6 +279,9 @@ body{
         .Container_Header__buycar{
             margin-left: 20px;
         }
+        .container_footer{
+
+        }
  }
  @media screen and (max-width: 480px) {
     body{
@@ -209,6 +295,23 @@ body{
  .Container_Header__buycar{
 
  }
+ .redireccion{
+    gap:200px
+ }
+ .edit_image_categoria{
+    margin-left: -5px;
+    width: 50px;
+    height: 30px;
+ }
+ .edit_categorias{
+    margin-left: -180px;
+    width: 50px;
+   
+ }
+ .container_footer{
+     margin-top: 400px;
+ }
+
 }
 @media screen and (max-width: 300px) {
     body{
