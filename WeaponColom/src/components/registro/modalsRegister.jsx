@@ -1,7 +1,7 @@
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import "./register.css"
-
+import Swal from "sweetalert2"
 import { useState } from 'react';
 export default function ModalsRegister({show1,handleClose1}){
 
@@ -25,7 +25,7 @@ export default function ModalsRegister({show1,handleClose1}){
   
   
 const registerHandler=async(e)=>{
-  e.preventDefault()
+  
   
   if( values1.correo== "" ||  values1.nombre== "" ||  values1.apellido== "" || values1.nomusuario=="" || values1.password== ""){
     return alert("no puede dejar campos vacios ")
@@ -36,14 +36,36 @@ const registerHandler=async(e)=>{
   else if(values1.correo.includes(" ") ){
     return alert("no puede tener espacios el correo ")
   }
-  const response = await fetch('http://localhost:8000', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json', 
-    },
-    body: JSON.stringify(values1), 
-  })
-
+  else if(values1.password.includes(" ") ){
+    return alert("no puede tener espacios la contraseña ")
+  }
+  e.preventDefault()
+    
+    const response = await fetch('http://localhost:8000', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json', 
+      },
+      body: JSON.stringify(values1), 
+    })
+  console.log(response)
+  if(response.status==200){
+    Swal.fire({
+      title: "Good job!",
+      text: "has registrado con exito",
+      icon: "success"
+    });
+    console.log(response)
+  }
+  else{
+    Swal.fire({
+      icon: "error",
+      title: "Oops...",
+      text: "Something went wrong!, error al registrarse",
+    
+    });
+  }
+ 
   
 }
 

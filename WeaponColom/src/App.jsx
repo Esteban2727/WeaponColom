@@ -6,6 +6,7 @@ import Recuperar from "./rutas/recuperar"
 // import Pistola from "./rutas/pistola"
 // import Franco from "./rutas/franco"
 import  Armas from "./rutas/Armas"
+import SesionIniciada from "./components/sing in/sesionIniciada"
 function App() {
 
 
@@ -17,6 +18,7 @@ function App() {
     <Routes>
       <Route path="/" element={   
          <div className="Container_main"><Mainpage/></div> }></Route>
+     <Route path="/prueba" element={<SesionIniciada/> }></Route>
     <Route path="/recuperarPassword" element={<Recuperar/> }></Route>
     <Route path="/:Escopeta" element={<Armas/>}></Route>
     <Route path="/fusil" element={<Armas/>}></Route>

@@ -5,6 +5,7 @@ import "./sigin.css"
 import { useState } from 'react';
 import { IoPersonCircle } from "react-icons/io5";
 import { Link } from 'react-router-dom';
+import Swal from "sweetalert2"
 
 export default function ModalsSignIn({show2,handleClose2}){
     
@@ -21,10 +22,15 @@ export default function ModalsSignIn({show2,handleClose2}){
       })
     }
   
-  
+  const imprimir=()=>{
+   
+    setTimeout(() => {
+      window.location.href = "/prueba";
+    }, 2000); // 2000 milisegundos = 2 segundos
+  }
   const otherHandle=async(e)=>{
     e.preventDefault()
-    console.log(values)
+    
     const response = await fetch('http://localhost:8000', {
       method: 'POST',
       headers: {
@@ -32,6 +38,23 @@ export default function ModalsSignIn({show2,handleClose2}){
       },
       body: JSON.stringify(values), 
     })
+    if(response.status==200){
+      Swal.fire({
+        title: "Good job!",
+        text: "has ingresado con exito",
+        icon: "success"
+      });
+       imprimir()
+    }
+   
+    else{
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Something went wrong!, incorrect password",
+      
+      });
+    }
    
   }
 
@@ -51,7 +74,7 @@ export default function ModalsSignIn({show2,handleClose2}){
       <a><Link to={  "/recuperarPassword"  /* "#" */    } style={{"padding-left":"60px"}}>¿olvide mi contraseña?</Link></a>
       <div className='button2'>
       <button type="button" className="btn btn-success edit_button" onClick={otherHandle} >INGRESAR</button>
-      s
+      
      
       </div>
      

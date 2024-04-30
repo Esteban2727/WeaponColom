@@ -1,0 +1,159 @@
+body{
+    
+    padding: 0;
+    margin: 0;
+}
+.containerPrincipal{
+    background-image: url("../../assets/fondoImagen.jpg");
+    padding: 0;
+    margin: 0;
+    
+}
+.containerInformacion{
+ display: flex;
+ flex-direction: column;
+ background-color: white;
+width: 900px;
+ height: 500px;
+ margin-left: 20%;
+ margin-top: 3%;
+}
+.containerTel{
+    display: flex;
+    flex-direction: row;
+    gap:10px;
+    padding-left: 2%;
+    justify-content: space-between;
+    background-color: rgb(119, 112, 112);
+}
+.edit_tel{
+    padding-top: .8%;
+    width: 50%;
+    height:50% ;
+   
+}
+.edit_url{
+    color:white;
+   
+}
+.edit_cerrarSesion{
+    display: flex;
+    flex-direction: row;
+    gap: 2%;
+    width: 60%;
+    padding-left: 30%;
+    background-color: rgb(119, 112, 112);
+}
+.edit_contact{
+    display: flex;
+    flex-direction: row;
+    gap: 2%; 
+    width: 70%;
+    
+}
+
+.containerHeader{
+    display: flex;
+    flex-direction: row;
+    gap: 3%;
+    background-color: rgb(86, 80, 80);
+    height: 100px;
+    
+}
+.left{
+    display: flex;
+    flex-direction: row;
+    gap: 3%;
+    width: 70%;
+    padding-top: 2%;
+    padding-left: 2%;
+    
+}
+.eddit_hr_hr{
+    color:orange;
+    width: 900px;
+    margin-top: 0px;
+    
+}
+.acomodar{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    
+}
+.acomodar_container{
+    background-color:  rgb(86, 80, 80);
+    color: white;
+    border: none;
+    
+}
+.acomodar_container:hover{
+    background-color: orange;
+}
+.edit_inputww{
+height: 30px;
+width: 350px;
+margin-top: 10px;
+}
+.edit-Search{
+    width: 15%;
+    height: 36%;
+    margin-left: -19px;
+    margin-top: 10px;
+    background-color: black;
+    color: white;
+    
+}
+.edit_reDIRE{
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    background-color:  rgb(86, 80, 80);
+}
+
+.filtrado{
+    margin-top: -15px;
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    height: 100%;
+    
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    height: 70%;
+    background-color: rgb(235, 226, 226);
+    margin-top: -15px;
+    overflow-y: auto;
+}
+.one{
+    display: flex;
+    flex-direction: row;
+    
+    height: 100%;
+}
+.checkbox{
+    margin-left: -85%;
+}
+.decorar_insides1{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    flex-wrap: wrap;
+    width: 60%;
+    font-size: 10px;
+    border-radius: 5%;
+    box-shadow: -11px 0px 57px 4px rgba(161, 146, 146, 0.75);
+-webkit-box-shadow: -11px 0px 57px 4px rgba(172, 155, 155, 0.75);
+-moz-box-shadow: -11px 0px 57px 4px rgba(194, 171, 171, 0.75);
+justify-content: space-between;
+    padding-left: 20px;
+    margin-left: 25%;
+
+   
+}
+.decorar_insides1:hover{
+    background-color: aqua;
+}

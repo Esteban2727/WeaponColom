@@ -14,16 +14,31 @@ import fusil from "../src/assets/fusil.png"
 import pistola from "../src/assets/pistola.png"
 import ak47 from "../src/assets/ak47.png"
 import bush from "../src/assets/Bushmaster_ACR.png"
-
+import  'aos/dist/aos.css'
+import Aos from 'aos';
 import { FaInstagram } from "react-icons/fa";
 import { FaWhatsapp } from "react-icons/fa";
 import { ImFacebook2 } from "react-icons/im";
 
-export default function Mainpage(){
+ function Mainpage(){
     const [show, setShow] = useState(false);
     const [show1, setShow1] = useState(false);
     const [show2, setShow2] = useState(false);
- 
+    const [productos, setProductos] = useState([]);
+    const [busqueda, setBusqueda] = useState('');
+    
+   
+    const[modal1, setModal]=useState(false)
+    const[producto1,setProducto1 ]= useState([])
+
+    const abriMOdal=(product)=>{
+      setProducto1(product)
+      setModal(true)
+    }
+    const CerrarModal=()=>{
+      setModal(false)
+    }
+   
   
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -33,6 +48,45 @@ export default function Mainpage(){
 
     const handleClose2 = () => setShow2(false);
     const handleShow2 = () => setShow2(true);
+
+    useEffect(() => {
+      async function obtenerProductosCompletos() {
+        try {
+          // Obtiene el tipo de la URL
+          const url = 'http://localhost:8000';
+          const response = await fetch(url);
+          const data = await response.json();
+          setProductos(data);
+        } catch (error) {
+          console.error('Error al obtener productos:', error);
+        }
+      }
+      Aos.init({duration:1000})
+      obtenerProductosCompletos(); // Llama a obtenerProductos() dentro de useEffect()
+  
+      // No es necesario agregar 'obtenerProductos' a la lista de dependencias ya que no tiene dependencias externas
+    }, []);
+    const handleBusquedaChange = (event) => {
+      const save= event.target.value;
+      const done = save.charAt(0).toUpperCase() + save.slice(1);
+      setBusqueda(done)
+      
+     
+     
+    };
+    
+    
+      console.log(productos)
+      const productosFiltrados = productos.filter(producto => {
+        return (
+          producto.nombre.toLowerCase().includes(busqueda.toLowerCase())
+          
+          
+        )
+      });
+
+
+      
     return (
     <>
     <div className="Container_Header container-fluid">
@@ -42,7 +96,7 @@ export default function Mainpage(){
     <BsCart4  className="Container_Header__buycar" style={{ width: '30px', height: '50px' }}  onClick={handleShow}/>  
     <BsFillPersonPlusFill className="Container_Header__buycar" style={{ width: '30px', height: '50px' }} onClick={handleShow1} />
     <BsPersonRaisedHand className="Container_Header__buycar" style={{ width: '30px', height: '50px' }} onClick={handleShow2}/>
-    <Modals show={show} handleClose={handleClose}/>
+    <Modals show={show} handleClose={handleClose} />
     <ModalsRegister show1={show1} handleClose1={handleClose1}/>
     <ModalsSignIn show2={show2} handleClose2={handleClose2}/>
     </div>
@@ -84,6 +138,64 @@ export default function Mainpage(){
   </button>
 </div>
 </div>
+<div className="dropdown OTRO">
+  <button className="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+    BUSCAR POR :
+  </button>
+  <ul className="dropdown-menu dropdown-menu-dark">
+  <li><a className="dropdown-item" href="http://localhost:3000/">Categoria</a></li>
+  <li><hr className="dropdown-divider"/></li>
+  <li><a className="dropdown-item" href="http://localhost:3000/media_distancia">media distancia</a></li>
+  <li><a className="dropdown-item" href="http://localhost:3000/corta_distancia">corta distancia</a></li>
+  <li><a className="dropdown-item" href="http://localhost:3000/larga_distancia">larga distancia</a></li>
+  <li><a className="dropdown-item" href="http://localhost:3000/arma_automatica">arma automatica</a></li>
+  <li><hr className="dropdown-divider"/></li>
+
+  
+  </ul>
+  <div className='edit_input'>
+      <input
+        type="text"
+        placeholder="Buscar por nombre de arma"
+        className='editar_inputBusqueda'
+        
+        onChange={handleBusquedaChange}
+      />
+      
+      </div>
+</div>
+     <h1 className='ti'>Productos de nuestra Tienda</h1>
+      {productosFiltrados.map((producto, index) => (
+        <div key={index} className='decorar_insides ' data-aos="fade-down fade-up" onClick={()=>{abriMOdal(producto)}}>
+          <p className='decorar_inside__titles'> {producto.nombre}</p>
+          <p><strong>Descripción:</strong> {producto.descripcion}</p>
+          <p><strong>Precio:</strong> {producto.precio}</p> 
+          <p><strong>Marca:</strong> {producto.marca}</p>  
+          <p><strong>Categoría:</strong> {producto.categoria}</p> 
+          <div className='moveCar'>
+          <BsCart4 className='addCarrito'  />
+          </div>
+        </div>
+      ))}
+{modal1 &&
+                <div className="modal edit_modal_producto" style={{ display: modal1 ? 'flex' : 'none'  ,width:"800px" }}>
+                    <div className="modal-content">
+                        <span className="close" onClick={CerrarModal}>&times;</span>
+                        
+                          <p>{producto1.nombre}</p>
+                          <p><strong>Descripción:</strong> {producto1.descripcion}</p>
+                          <p><strong>Precio:</strong> {producto1.precio}</p> 
+                          <p><strong>Marca:</strong> {producto1.marca}</p>  
+                          <p><strong>Categoría:</strong> {producto1.categoria}</p>
+                    </div>
+                </div>
+            }
+      
+      
+
+      
+    
+ 
 
 
     <footer className="container_footer container-fluid">
@@ -105,4 +217,7 @@ export default function Mainpage(){
     </footer>
     </>
     )
+  
 }
+
+export default Mainpage;

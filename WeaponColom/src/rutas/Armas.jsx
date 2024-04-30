@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react';
 import "./fusil.css"
 import { BsCart4 } from "react-icons/bs"
 import Carrito from "../components/carrito/modals"
+
+import  'aos/dist/aos.css'
+import Aos from 'aos';
 export default  function ListaProductos() {
   const [productos, setProductos] = useState([]);
   const [busqueda, setBusqueda] = useState('');
@@ -20,7 +23,7 @@ export default  function ListaProductos() {
         console.error('Error al obtener productos:', error);
       }
     }
-
+    Aos.init({duration:1000})
     obtenerProductos(); // Llama a obtenerProductos() dentro de useEffect()
 
     // No es necesario agregar 'obtenerProductos' a la lista de dependencias ya que no tiene dependencias externas
@@ -74,8 +77,8 @@ export default  function ListaProductos() {
       <h1 className='ti'>Productos de {tipoArma}</h1>
 
       {productosFiltrados.map((producto, index) => (
-        <div key={index} className='decorar_inside'>
-          <p className='decorar_inside__titles'>Nombre: {producto.nombre}</p>
+        <div key={index} className='decorar_inside ' data-aos="fade-down">
+          <p className='decorar_inside__titles'> {producto.nombre}</p>
           <p><strong>Descripción:</strong> {producto.descripcion}</p>
           <p><strong>Precio:</strong> {producto.precio}</p> 
           <p><strong>Marca:</strong> {producto.marca}</p>  

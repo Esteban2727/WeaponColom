@@ -2,9 +2,10 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import "./modal.css"
 
-import { useState } from 'react';
+
+import { useState,useEffect } from 'react';
 export default function Modals({show,handleClose }){
- 
+  
 
     return <Modal show={show} onHide={handleClose}>
         <div className='container_edit'>
@@ -13,6 +14,7 @@ export default function Modals({show,handleClose }){
       <hr className='edit_hr'></hr>
       
       <div className='input'>
+      
 
       <button type="button" className="btn btn-success" >pagar</button>
 
@@ -20,7 +22,7 @@ export default function Modals({show,handleClose }){
       </div>
     
     <Modal.Body>
-        
+    
     </Modal.Body>
     {/* <Modal.Footer>
       <Button variant="secondary" onClick={handleClose}>

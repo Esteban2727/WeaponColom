@@ -3,7 +3,7 @@ import express from 'express';
 import nodemailer from 'nodemailer'
 
 //bringALL,bringALL1,bringALL2,bringALL3,
-import {getProducto, insertData ,validarData,RecuperarPassword ,recuperada } from './consultas.js';
+import {getProducto, insertData ,validarData,RecuperarPassword ,recuperada ,getAllproductos,getProductoCategoria} from './consultas.js';
 
 
 const app = express();
@@ -14,22 +14,33 @@ app.use(cors());
 app.use(express.json());
 
 
-app.post('/', (req, res) => {
-  const datosRecibidos = req.body;
- // console.log('Datos recibidos del frontend:', datosRecibidos);
+app.post('/', async (req, res) => {
+  const datosRecibidos= req.body
   
   if(Object.keys(datosRecibidos).length== 5){
-    res.send('Datos recibidos correctamente en el backend registro');
     
-  insertData(datosRecibidos);
+   const guardar= await insertData(datosRecibidos);
   
-  }
+    if(guardar== false){
+      res.status(401).json({Error :"registro no aceptado"})
+      
+    }else{
+      res.status(200).json({Error: "QUEDO REGISTRADO"})
+    }
+   }
+  
   else {
-    res.send('Datos recibidos correctamente en el backend ingresar');
-   
-     validarData(datosRecibidos);
-  }
-});
+    const savePromise = validarData(datosRecibidos);
+
+    savePromise.then(save => {
+      console.log(save); // Aquí puedes ver el valor de 'save'
+      if (!save) {
+        res.status(401).json({ Error: "contraseña incorrecta" });
+      } else {
+       res.status(200).json({Error: "bienvenido al porgrama"})
+      }
+  })
+}});
 
 
 
@@ -69,10 +80,10 @@ app.post('/recuperarPassword', async (req, res) => {
       });
     
       const info = await transporter.sendMail({
-        from: '"Weapon Colom" <escastr@gmail.com>', // Cambia esto por tu dirección de correo electrónico
-        to: datosRecibidos.correo, // Dirección de correo del destinatario
-        subject: "Recuperación de contraseña", // Línea de asunto del correo electrónico
-        html: infom // Contenido HTML del correo electrónico
+        from: '"Weapon Colom" <escastr@gmail.com>', 
+        to: datosRecibidos.correo, 
+        subject: "Recuperación de contraseña", // 
+        html: infom 
       });
     
       console.log("El correo fue enviado:", info.messageId);
@@ -81,17 +92,59 @@ app.post('/recuperarPassword', async (req, res) => {
     }});
     app.get("/:tipo" , async (req,res)=>{
       const tipoArma = req.params.tipo
-      console.log(req.params)
-      console.log(tipoArma)
+      if(tipoArma == "Escopeta" || tipoArma == "Pistola" || tipoArma =="fusil" || tipoArma == "franco" ){
       console.log(req.params.tipo)
+      
       const tipo= await getProducto(tipoArma)
       if(tipo){
         res.json(tipo)
       }else{
         res.status(404).json({error:'no se encontraron'})
       }
+    }
+    else if (tipoArma=="prueba"){
+      const tipo= await  getAllproductos()
+      res.json(tipo)
+    }
+     else{
+      const save= remplazarlineaPorEspacio(req.params.tipo)
+      console.log(save)
+      console.log("entrando")
+       const tipos= await getProductoCategoria(save)
+       
+       if(tipos){
+        res.json(tipos)
+      }else{
+        res.status(404).json({error:'no se encontraron'})
+      }
+    }
+
       
        })
+       app.get("/prueba" , async (req,res)=>{
+
+        console.log("llega aqui en la pagina prueba")
+        const tipo= await  getAllproductos()
+        res.json(tipo)
+        
+         })
+
+       app.get("/" , async (req,res)=>{
+
+        console.log("llega aqui")
+        const tipo= await  getAllproductos()
+        res.json(tipo)
+        
+         })
+        
+         function remplazarlineaPorEspacio(cadena) {
+          // Utilizamos la función replace() con una expresión regular para encontrar todas las comas y reemplazarlas por espacios
+          return cadena.replace(/_/g, ' ');
+      }
+  
+
+         
+
 
 app.listen(PORT, () => {
   console.log(`Servidor corriendo en el puerto ${PORT}`);
