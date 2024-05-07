@@ -1,9 +1,11 @@
 import cors from 'cors';
 import express from 'express';
 import nodemailer from 'nodemailer'
+import jwt from "jsonwebtoken"
+import {GeneratorJWT } from "./jwt.js"
 
 //bringALL,bringALL1,bringALL2,bringALL3,
-import {getProducto, insertData ,validarData,RecuperarPassword ,recuperada ,getAllproductos,getProductoCategoria} from './consultas.js';
+import {getID,getProducto, insertData ,validarData,RecuperarPassword ,recuperada ,getAllproductos,getProductoCategoria} from './consultas.js';
 
 
 const app = express();
@@ -12,6 +14,8 @@ const PORT = process.env.PORT || 8000;
 
 app.use(cors());
 app.use(express.json());
+
+
 
 
 app.post('/', async (req, res) => {
@@ -37,7 +41,21 @@ app.post('/', async (req, res) => {
       if (!save) {
         res.status(401).json({ Error: "contraseña incorrecta" });
       } else {
-       res.status(200).json({Error: "bienvenido al porgrama"})
+       const guardar=  getID(datosRecibidos)
+        guardar.then(get=>{
+          get.forEach(get=> {
+            const rowValues = get.row.slice(1, -1).split(',');
+
+            const idUsuario = rowValues[0].trim();
+            const usuario = rowValues[1].trim();
+          const token=  GeneratorJWT(idUsuario,usuario)
+  
+
+          res.status(200).json({ token });
+            
+        })})
+
+      
       }
   })
 }});
@@ -102,32 +120,20 @@ app.post('/recuperarPassword', async (req, res) => {
         res.status(404).json({error:'no se encontraron'})
       }
     }
-    else if (tipoArma=="prueba"){
-      const tipo= await  getAllproductos()
-      res.json(tipo)
-    }
-     else{
-      const save= remplazarlineaPorEspacio(req.params.tipo)
-      console.log(save)
-      console.log("entrando")
-       const tipos= await getProductoCategoria(save)
-       
-       if(tipos){
-        res.json(tipos)
-      }else{
-        res.status(404).json({error:'no se encontraron'})
+        else{
+        const save= remplazarlineaPorEspacio(req.params.tipo)
+        console.log(save)
+        console.log("entrando")
+         const tipos= await getProductoCategoria(save)
+         
+         if(tipos){
+          res.json(tipos)
+        }else{
+          res.status(404).json({error:'no se encontraron'})
+        }
       }
-    }
-
-      
-       })
-       app.get("/prueba" , async (req,res)=>{
-
-        console.log("llega aqui en la pagina prueba")
-        const tipo= await  getAllproductos()
-        res.json(tipo)
-        
-         })
+  }) 
+  
 
        app.get("/" , async (req,res)=>{
 
@@ -141,8 +147,31 @@ app.post('/recuperarPassword', async (req, res) => {
           // Utilizamos la función replace() con una expresión regular para encontrar todas las comas y reemplazarlas por espacios
           return cadena.replace(/_/g, ' ');
       }
-  
+      app.post("/prueba" , async (req,res)=>{
 
+      let token = null;
+      const authorization = req.get('authorization');
+    
+      console.log(authorization)
+      if (authorization && authorization.startsWith('Bearer')){
+
+          token = authorization.substring(7);
+   
+          try {    
+            const verificar = jwt.verify(token,'WeaponColom');
+    
+            if (!verificar.id) {
+                throw new Error('Token inválido');
+            }
+            const tipo= await  getAllproductos()
+            res.json(tipo)
+        } catch (error) {
+          console.log("holaaaaaaaaaaaa")
+            res.status(401).json({ error: 'No estás verificado' });
+        }
+      }
+         })
+        
          
 
 

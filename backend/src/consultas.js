@@ -152,9 +152,19 @@ async function getProducto(producto){
       throw error;
     }
  }
-
+async function getID(dato){
+  try{
+  const client = await pool.connect()
+  const getIDS= await client.query('select (idusuario,usuario) from usuarios where correo=$1',[dato.correo])
+  
+  client.release()
+  return getIDS.rows
+}catch{
+  throw (Error, 'no obtuvo la id y el usuario')
+}
+}
 //bringALL,bringALL1,bringALL2,bringALL3,
-export {getProducto, insertData , validarData ,RecuperarPassword ,recuperada,getAllproductos,getProductoCategoria};
+export {getID , getProducto, insertData , validarData ,RecuperarPassword ,recuperada,getAllproductos,getProductoCategoria};
 
 
 // db.query('INSERT INTO table_name SET ?', data, function(err, result) {
