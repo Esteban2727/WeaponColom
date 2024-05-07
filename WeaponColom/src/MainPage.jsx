@@ -177,9 +177,10 @@ import { ImFacebook2 } from "react-icons/im";
           </div>
         </div>
       ))}
-{modal1 &&
-                <div className="modal edit_modal_producto" style={{ display: modal1 ? 'flex' : 'none'  ,width:"800px" }}>
-                    <div className="modal-content">
+{modal1 &&    
+              <div className="style_background">
+                <div className="modal1 edit_modal_producto" style={{ display: modal1 ? 'flex' : 'none', height: "300px", width: "700px" }}>
+                    <div className="modal-content" style={{backgroundColor:"rgb(161, 161, 211)"}}>
                         <span className="close" onClick={CerrarModal}>&times;</span>
                         
                           <p>{producto1.nombre}</p>
@@ -188,6 +189,7 @@ import { ImFacebook2 } from "react-icons/im";
                           <p><strong>Marca:</strong> {producto1.marca}</p>  
                           <p><strong>Categoría:</strong> {producto1.categoria}</p>
                     </div>
+                </div>
                 </div>
             }
       

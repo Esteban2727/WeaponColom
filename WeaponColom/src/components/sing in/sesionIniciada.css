@@ -157,3 +157,14 @@ justify-content: space-between;
 .decorar_insides1:hover{
     background-color: aqua;
 }
+.edit_buton_Gustar{
+background-color: green;
+color: white;
+width: 20%;
+}
+.edit_buton_noGustar{
+ background-color: red;
+ color: white;
+ width: 20%;
+
+}

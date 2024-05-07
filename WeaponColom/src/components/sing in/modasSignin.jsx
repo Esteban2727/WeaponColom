@@ -7,6 +7,7 @@ import { IoPersonCircle } from "react-icons/io5";
 import { Link } from 'react-router-dom';
 import Swal from "sweetalert2"
 
+
 export default function ModalsSignIn({show2,handleClose2}){
     
       const[values, SetValues] = useState({
@@ -30,21 +31,28 @@ export default function ModalsSignIn({show2,handleClose2}){
   }
   const otherHandle=async(e)=>{
     e.preventDefault()
+    const token = localStorage.getItem('token')
     
     const response = await fetch('http://localhost:8000', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json', 
+        'Authorization': `Bearer ${token}`
       },
       body: JSON.stringify(values), 
     })
+    
     if(response.status==200){
       Swal.fire({
         title: "Good job!",
         text: "has ingresado con exito",
         icon: "success"
       });
+      const { token } = await response.json();
+     localStorage.setItem('token', token);
+ 
        imprimir()
+       
     }
    
     else{

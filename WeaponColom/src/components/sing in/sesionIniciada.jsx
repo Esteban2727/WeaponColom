@@ -7,22 +7,38 @@ import { FaCaretDown } from "react-icons/fa";
 import Aos from 'aos';
 
 export default function  PageOne(){ 
+  const [like , setLike]= useState(true)
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const [isDropdownOpen1, setIsDropdownOpen1] = useState(false);
     const [isDropdownOpen2, setIsDropdownOpen2] = useState(false);
     const [productos, setProductos] = useState([]);
 
+    const gustar = like? 'gusta': 'no gusta'
+    const   liking = like? 'edit_buton_Gustar' :'edit_buton_noGustar'
+    const HandleLike=()=>{
+      setLike(!like)
+      
+    }
     useEffect(() => {
-        async function obtenerProductosCompletos() {
+        async  function obtenerProductosCompletos() {
+          const token = localStorage.getItem('token')
           try {
             // Obtiene el tipo de la URL
             console.log("enviando")
             const url = 'http://localhost:8000/prueba';
             console.log("recibiendo")
-            const response = await fetch(url);
+            const response = await fetch(url ,{
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json', 
+                'Authorization': `Bearer ${token}`
+              }
+            }
+              )
+
             const data = await response.json();
             setProductos(data);
-            console.log(data)
+
           } catch (error) {
             console.error('Error al obtener productos:', error);
           }
@@ -32,6 +48,14 @@ export default function  PageOne(){
     
         // No es necesario agregar 'obtenerProductos' a la lista de dependencias ya que no tiene dependencias externas
       }, []);
+      const closeSession = () => {
+        console.log("dd")
+        console.log(window.location.pathname)
+        if (window.location.pathname === "/prueba") {
+            console.log("gggg");
+            localStorage.setItem('token', false);
+        }
+    }
 
   return(
         <div className="containerPrincipal">
@@ -46,7 +70,9 @@ export default function  PageOne(){
         </div>
         <div className="edit_cerrarSesion">
         <p>Bienvenido,</p>
-       <a href="#" className="edit_url">cerrar sesion</a>
+       <a href="/" className="edit_url" onClick={closeSession}>cerrar sesion</a>
+       
+       
         </div>
         </div>
         <div className=" containerHeader">
@@ -136,7 +162,7 @@ export default function  PageOne(){
             <p><strong>Precio:</strong> {producto.precio}</p> 
             <p><strong>Marca:</strong> {producto.marca}</p>  
             <p><strong>Categoría:</strong> {producto.categoria}</p> 
-  
+            <button className={liking} onClick={HandleLike}>{gustar}</button>
           </div>
           
         ))}
