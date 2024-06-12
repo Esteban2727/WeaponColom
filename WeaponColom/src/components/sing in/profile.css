@@ -1,0 +1,136 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+}
+
+.main_main {
+    display: flex;
+    flex-direction:row;
+    align-items: center;
+    padding: 20px;
+    flex-wrap: wrap;
+    gap: 15px;
+    background: rgb(0,5,36);
+background: linear-gradient(90deg, rgba(0,5,36,0.8515055680475315) 0%, rgba(9,121,75,0.6218136912968313) 44%, rgba(0,212,255,1) 100%);
+}
+
+.container_main_profile {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 9px 4px 7px 4px rgba(0,0,0,0.85);
+-webkit-box-shadow: 9px 4px 7px 4px rgba(0,0,0,0.85);
+-moz-box-shadow: 9px 4px 7px 4px rgba(0,0,0,0.85);
+    width: 40%;
+    max-width: 800px;
+    margin: 20px 0;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.container_main_profile__image {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.edit_icon_Profile {
+    font-size: 100px;
+    color: #007bff;
+}
+
+.container_main_profile__datas {
+    flex: 1;
+    text-align: center;
+}
+
+.letter_style {
+    margin: 5px 0;
+    font-family: Impact, Charcoal, sans-serif;
+font-size: 21px;
+letter-spacing: 2.8px;
+word-spacing: 3.2px;
+color: #000000;
+font-weight: 700;
+text-decoration: underline solid rgb(68, 68, 68);
+font-style: normal;
+font-variant: small-caps;
+text-transform: uppercase;
+}
+
+.container_informationBuy{
+    margin-top: 5%;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 9px 4px 7px 4px rgba(0,0,0,0.85);
+    -webkit-box-shadow: 9px 4px 7px 4px rgba(0,0,0,0.85);
+    -moz-box-shadow: 9px 4px 7px 4px rgba(0,0,0,0.85);
+    padding: 20px;
+    margin-bottom: 20px;
+    width: 70%;
+    height: 350px;
+    max-width: 800px;
+}
+.container_informationProfile {
+    margin-top: -3%;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 9px 4px 7px 4px rgba(0,0,0,0.85);
+    -webkit-box-shadow: 9px 4px 7px 4px rgba(0,0,0,0.85);
+    -moz-box-shadow: 9px 4px 7px 4px rgba(0,0,0,0.85);
+    padding: 20px;
+    margin-bottom: 20px;
+    width: 40%;
+    height: 250px;
+    max-width: 800px;
+}
+
+.container_informationBuy__products,
+.container_informationProfile__inputs,
+.container_informationProfile_save {
+    margin-bottom: 10px;
+}
+
+.project-status {
+    margin-top: 20px;
+}
+
+.project-status h4 {
+    margin: 0 0 10px;
+}
+
+.progress-bar {
+    background-color: #e9ecef;
+    border-radius: 5px;
+    overflow: hidden;
+    height: 10px;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.progress-bar div {
+    height: 100%;
+    background-color: #007bff;
+}
+
+.progress-bar-wrapper {
+    margin-bottom: 10px;
+}.editar{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+   
+}
+.organizar{
+    height: 30px;
+    border: none;
+}
+.edit1{
+    margin-top: -2px;
+    height: 2px;
+    width: 100%;
+}

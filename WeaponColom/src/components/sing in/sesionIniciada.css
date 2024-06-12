@@ -1,22 +1,26 @@
 body{
     
     padding: 0;
-    margin: 0;
+    margin: 0 auto;
+   
 }
 .containerPrincipal{
     background-image: url("../../assets/fondoImagen.jpg");
-    padding: 0;
-    margin: 0;
+    height: 100vh;
     
 }
 .containerInformacion{
  display: flex;
  flex-direction: column;
  background-color: white;
-width: 900px;
+width: 70%;
  height: 500px;
- margin-left: 20%;
- margin-top: 3%;
+ margin-left: 15%;
+ 
+}
+.container-icon{
+    margin-left: 300px;
+    
 }
 .containerTel{
     display: flex;
@@ -117,13 +121,15 @@ margin-top: 10px;
     flex-direction: column;
     width: 30%;
     height: 100%;
+
+background-color: white;
     
 }
 .container{
     display: flex;
     flex-direction: column;
     width: 30%;
-    height: 70%;
+    height: 100%;
     background-color: rgb(235, 226, 226);
     margin-top: -15px;
     overflow-y: auto;
@@ -167,4 +173,13 @@ width: 20%;
  color: white;
  width: 20%;
 
+}
+.edit_home_profile{
+    width: 35%;
+    height: 35%;
+    margin-left: -5%;
+    margin-top: 3%;
+}
+.botonVisualizar{
+    width: 20%;
 }

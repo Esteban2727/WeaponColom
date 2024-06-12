@@ -52,10 +52,11 @@ import { ImFacebook2 } from "react-icons/im";
     useEffect(() => {
       async function obtenerProductosCompletos() {
         try {
-          // Obtiene el tipo de la URL
+    
           const url = 'http://localhost:8000';
           const response = await fetch(url);
           const data = await response.json();
+          console.log(data)
           setProductos(data);
         } catch (error) {
           console.error('Error al obtener productos:', error);
@@ -84,7 +85,9 @@ import { ImFacebook2 } from "react-icons/im";
           
         )
       });
-
+    function IngresarUsuario(){
+      
+    }
 
       
     return (
@@ -113,7 +116,7 @@ import { ImFacebook2 } from "react-icons/im";
         <div id="carouselExampleAutoplaying" className="carousel slide" data-bs-ride="carousel">
   <div className="carousel-inner">
     <div className="carousel-item active">
-      <img src={franco} className="d-block w-100 edit1" alt="..."></img>
+      <img src={franco} className="d-block w-100 edit2" alt="..."></img>
     </div>
     <div className="carousel-item">
       <img src={escopeta} className="d-block w-100 edit2" alt="..."></img>
@@ -173,7 +176,7 @@ import { ImFacebook2 } from "react-icons/im";
           <p><strong>Marca:</strong> {producto.marca}</p>  
           <p><strong>Categoría:</strong> {producto.categoria}</p> 
           <div className='moveCar'>
-          <BsCart4 className='addCarrito'  />
+          <BsCart4 className='addCarrito' onClick={()=>{IngresarUsuario()}}  />
           </div>
         </div>
       ))}

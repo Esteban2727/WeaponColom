@@ -1,7 +1,7 @@
 import pg from 'pg';
 import {encript, compare}from "./encryptar.js"
 const { Pool } = pg;
-import app from "./index.js";
+
 
 const pool = new Pool({
   user: 'postgres',
@@ -163,8 +163,72 @@ async function getID(dato){
   throw (Error, 'no obtuvo la id y el usuario')
 }
 }
+
+async function getArmas1(name){
+  const client = await pool.connect()
+  console.log(name)
+  const getArma = await client.query('SELECT * FROM producto WHERE nombre ILIKE $1', [`%${name}%`]);
+  client.release()
+  console.log(getArma.rows)
+  return getArma.rows
+  
+}
+async function InfoPerfil(value){
+  const client = await pool.connect()
+  const getInfo = await client.query('SELECT nombre,apellido,usuario,correo FROM usuarios WHERE idusuario = $1', [value]);
+  client.release()
+  console.log(getInfo.rows)
+  return getInfo.rows
+}
+async function changeDatas(datas,otro){
+  const client = await pool.connect()
+  const update = await client.query(
+    `UPDATE usuarios SET nombre = $1, apellido = $2, usuario = $3, correo = $4 WHERE idusuario = ${otro}`,
+    [datas.nombre, datas.apellido, datas.usuario, datas.correo]
+  )
+client.release()
+return update.rows
+
+}
+async function saveLIKES(codigoProducto, like, idusuarios) {
+  const client = await pool.connect();
+  try {
+    // Verificar si ya existe una entrada para el usuario y el producto
+    const verificar = await client.query(
+      `SELECT idusuario, codigo FROM califica WHERE idusuario = $1 AND codigo = $2`,
+      [idusuarios, codigoProducto]
+    );
+
+    let result;
+    if (verificar.rows.length > 0) {
+      // Si existe, realiza un UPDATE
+      result = await client.query(
+        `UPDATE califica 
+         SET calificacion = $1 
+         WHERE idusuario = $2 AND codigo = $3 
+         RETURNING *`,
+        [like, idusuarios, codigoProducto]
+      );
+    } else {
+      
+      result = await client.query(
+        `INSERT INTO califica (codigo, idusuario, calificacion) 
+         VALUES ($1, $2, $3) 
+         RETURNING *`,
+        [codigoProducto, idusuarios, like]
+      );
+    }
+
+    return result.rows;
+  } catch (error) {
+    console.error('Error al guardar la calificación:', error);
+    throw error;
+  } finally {
+    client.release();
+  }
+}
 //bringALL,bringALL1,bringALL2,bringALL3,
-export {getID , getProducto, insertData , validarData ,RecuperarPassword ,recuperada,getAllproductos,getProductoCategoria};
+export {saveLIKES,changeDatas,InfoPerfil,getArmas1,getID , getProducto, insertData , validarData ,RecuperarPassword ,recuperada,getAllproductos,getProductoCategoria};
 
 
 // db.query('INSERT INTO table_name SET ?', data, function(err, result) {
