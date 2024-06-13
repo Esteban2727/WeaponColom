@@ -127,10 +127,17 @@ async function getProducto(producto){
   }
 }
  async function getAllproductos(){
+ 
   try{
     const client = await pool.connect();
-    const datos = await client.query('Select * from producto ')
+    const datos = await client.query( `select p.codigo, p.nombre,
+p.descripcion,p.tipo, p.categoria,p.precio,p.imagen,p.stock,
+COALESCE(array_agg(cal.idusuario), '{}') AS usuarioLikes
+from producto p
+left join calificacion cal on p.codigo =cal.codigoproducto 
+group by p.codigo `  )
     console.log("entra a la base")
+    
      client.release()
      return datos.rows
   
@@ -199,6 +206,7 @@ async function saveLIKES(codigoProducto, like, idusuarios) {
       [idusuarios, codigoProducto]
     );
 
+    
     let result;
     if (verificar.rows.length > 0) {
       // Si existe, realiza un UPDATE

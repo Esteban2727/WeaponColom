@@ -27,10 +27,11 @@ export default function Information() {
     <div>
       {products1.map((producto, index) => (
         <div key={index} className='decorar_inside'>
+          <image src= {producto.imagen} alt="imagen va aqui"/>
           <p className='decorar_inside__titles'>{producto.nombre}</p>
           <p><strong>Descripción:</strong> {producto.descripcion}</p>
           <p><strong>Precio:</strong> {producto.precio}</p>
-          <p><strong>Marca:</strong> {producto.marca}</p>
+          <p><strong>Stock:</strong> {producto.stock}</p>
           <p><strong>Categoría:</strong> {producto.categoria}</p>
           <div className='moveCar'>
             <BsCart4 className='addCarrito' />

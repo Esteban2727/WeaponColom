@@ -189,6 +189,8 @@ app.post('/recuperarPassword', async (req, res) => {
                 throw new Error('Token inválido');
             }
             const tipo= await  getAllproductos()
+            console.log(tipo)
+            
             res.json(tipo)
         } catch (error) {
           console.log("holaaaaaaaaaaaa")

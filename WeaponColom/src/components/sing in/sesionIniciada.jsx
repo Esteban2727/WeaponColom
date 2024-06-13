@@ -248,9 +248,11 @@ export default function PageOne() {
           {!loading && productos.map((producto) => (
         <div key={producto.codigo} className='decorar_insides1' onClick={() => onAddProducts(producto)}>
           <p className='decorar_inside__titles'> {producto.nombre}</p>
+          <img src={ URL.createObjectURL(new Blob([new Uint8Array (producto.imagen.data)],{ type: 'image/jpeg' }))} className="hi" />
+          {console.log(producto.imagen)}
           <p><strong>Descripción:</strong> {producto.descripcion}</p>
           <p><strong>Precio:</strong> {producto.precio}</p>
-          <p><strong>Marca:</strong> {producto.marca}</p>
+          <p><strong>stock:</strong> {producto.stock}</p>
           <p><strong>Categoría:</strong> {producto.categoria}</p>
           <button
             className={producto.like ? 'edit_buton_Gustar' : 'edit_buton_noGustar'}
@@ -260,6 +262,8 @@ export default function PageOne() {
             }}
           >
             {producto.like ?  'gusta' : 'no gusta'}
+           
+
           </button>
                 <button className="botonVisualizar" onClick={()=>{visualizar(producto.nombre)}}>visualizar</button>
               </div>
