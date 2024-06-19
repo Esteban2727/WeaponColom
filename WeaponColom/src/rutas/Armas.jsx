@@ -10,11 +10,12 @@ export default  function ListaProductos() {
   const [busqueda, setBusqueda] = useState('');
 
   
-  const tipoArma = window.location.pathname.replace('/', ''); 
+  const tipoArma = window.location.pathname.replace('/', '');
+  console.log(tipoArma) 
   useEffect(() => {
     async function obtenerProductos() {
       try {
-        // Obtiene el tipo de la URL
+        
         const url = `http://localhost:8000/${tipoArma}`;
         const response = await fetch(url);
         const data = await response.json();
@@ -55,9 +56,9 @@ export default  function ListaProductos() {
   </button>
   <ul className="dropdown-menu dropdown-menu-dark">
   <li><a className="dropdown-item" href="http://localhost:3000/">Incio</a></li>
-    <li><a className="dropdown-item active" href="http://localhost:3000/franco">Franco </a></li>
+    <li><a className="dropdown-item active" href="http://localhost:3000/Rifle">Rifle </a></li>
     <li><a className="dropdown-item" href="http://localhost:3000/Escopeta">Escopeta</a></li>
-    <li><a className="dropdown-item" href="http://localhost:3000/fusil">fusil</a></li>
+    <li><a className="dropdown-item" href="http://localhost:3000/Fusil">Fusil</a></li>
     <li><a className="dropdown-item" href="http://localhost:3000/Pistola">Pistola</a></li>
     
 
@@ -84,7 +85,7 @@ export default  function ListaProductos() {
           <p><strong>Marca:</strong> {producto.marca}</p>  
           <p><strong>Categoría:</strong> {producto.categoria}</p> 
           <div className='moveCar'>
-          <BsCart4 className='addCarrito'/>
+          
           </div>
         </div>
       ))}

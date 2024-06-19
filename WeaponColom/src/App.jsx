@@ -9,16 +9,13 @@ import Recuperar from "./rutas/recuperar"
 import  Armas from "./rutas/Armas"
 import SesionIniciada from "./components/sing in/sesionIniciada"
 import Perfil from "./components/sing in/pefil"
-import InfoArma from "./components/sing in/InfoArma/InfoArma"
+import InfoArma from "./components/sing in/InfoArma/InformationWeapon"
 
 import { useState } from 'react'
+import InformationWeapon from "./components/sing in/InfoArma/InformationWeapon"
 
 //import {ProductList} from './components/ProductList'
 function App() {
- 
-  const rutaDespuesDePrueba = window.location.pathname.trim()
-  console.log(rutaDespuesDePrueba,11)
- 
   return (
     <>
   
@@ -39,13 +36,18 @@ function App() {
          <div className="Container_main"><Mainpage/></div> }></Route>
      <Route path="/prueba" element={<SesionIniciada/> }></Route>
      <Route path="/pruebaPerfil" element={<Perfil/> }></Route>
-
-     <Route path={rutaDespuesDePrueba} element={<InfoArma />}> </Route>
+     <Route path="/weapon" element= {<InformationWeapon/>}></Route>
     <Route path="/recuperarPassword" element={<Recuperar/> }></Route>
     <Route path="/Escopeta" element={<Armas/>}></Route>
-    <Route path="/fusil" element={<Armas/>}></Route>
+    <Route path="/Fusil" element={<Armas/>}></Route>
     <Route path="/Pistola" element={<Armas/>}></Route>
-    <Route path="/franco" element={<Armas/>}></Route>
+    <Route path="/Rifle" element={<Armas/>}></Route>
+    <Route path="/Armas_traumaticas" element={<Armas/>}></Route>
+    <Route path="/Bolas_de_pimienta" element={<Armas/>}></Route>
+    <Route path="/Pistola_de_aire" element={<Armas/>}></Route>
+    <Route path="/Neumatico" element={<Armas/>}></Route>
+    <Route path="/Fogueo" element={<Armas/>}></Route>
+    <Route path="/Airsoft" element={<Armas/>}></Route>
     
     </Routes>
     </>

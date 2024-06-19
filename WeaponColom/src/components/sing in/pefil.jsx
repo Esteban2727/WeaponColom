@@ -167,7 +167,7 @@
       <div className="container_informationProfile">
         <div className="container_informationProfile__inputs"></div>
         <div className="container_informationProfile_save">
-          {/* Add save button or actions here */}
+          
         </div>
       </div>
     </div>

@@ -63,6 +63,8 @@ header{
     background-color: #fff;
     width: 400px;
     z-index: 1;
+    overflow-y: auto;
+    max-height: 500px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.20);
     border-radius: 10px;
     
@@ -73,7 +75,7 @@ header{
     align-items: center;
     justify-content: space-between;
     padding: 30px;
-
+    min-height: 100px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.20);
 
 }
@@ -197,13 +199,20 @@ header{
     display: none;
 }
 
+.btns-carrito{
+    display:flex;
+    flex-direction: row;
+    gap: 10px;
+
+
+}
 .btn-clear-all{
     border: none;
     background-color: #000;
     color: #fff;
-    padding: 15px 0;
-    display: block;
-    width: 100%;
+    padding: 10px 0;
+    /* display: block; */
+    width: 48%;
     margin-top: 10px;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
@@ -211,6 +220,7 @@ header{
     cursor: pointer;
     font-size: 16px;
     transition: all .3s ease;
+
 }
 
 .btn-clear-all:hover{
@@ -218,3 +228,28 @@ header{
     transform:scale(1.03);
     border-radius: 0;
 }
+/* cambios */
+
+.btn-pay-all{
+/*     display: flex;
+    flex-direction: row; */
+    border: none;
+    background-color: #000;
+    color: #fff;
+    padding: 10px 0;
+/*     display: block; */
+    width: 49%;
+    margin-top: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    font-family: inherit;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all .3s ease;
+  
+
+
+
+}
+
+

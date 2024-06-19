@@ -27,11 +27,63 @@ const Header = ({ productos, setProductos, total, setTotal, countProducts, setCo
     }
   };
 
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+   /* cambios */
+    const token = localStorage.getItem('token'); // Reemplaza con tu token real
+    const data=[...productos]
+    try {
+      const response = await fetch('http://localhost:8000/compra/factura', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify({
+          total,
+          weapons:productos.map(w=>{
+            
+            return {
+              codigo:w.codigo,
+              quantity:w.quantity
+            }
+          })
+        }), /* enviar los datos en forma de json */
+      });
+      if (response.ok) {
+        console.log(22222)
+        onClearCart();
+      }
+      const data = await response.json();
+
+     
+  
+      const responseData = await response.json();
+      console.log('Respuesta del servidor:', responseData);
+  
+
+      
+  
+      // Reinicia los estados del formulario
+      // Muestra una alerta o mensaje de éxito al usuario
+      alert('Pedido pagado exitosamente');
+  
+    } catch (error) {
+      console.error('Error al procesar la solicitud:', error);
+    }
+  };
+  
+
   const onClearCart = () => {
     setProductos([]);
     setTotal(0);
     setCountProducts(0);
   };
+
+  /* cambios */
+/* const onpayproduct = ()=>{
+  alert("pedido pagado exitosametne")
+} */
 
   return (
     <header>
@@ -89,9 +141,16 @@ const Header = ({ productos, setProductos, total, setTotal, countProducts, setCo
                 <h3>Total:</h3>
                 <span className="total-pagar">${total}</span>
               </div>
+              {/* cambio */}
+              <div className='btns-carrito'>
               <button className="btn-clear-all" onClick={onClearCart}>
                 Vaciar carrito
               </button>
+             {/*  cambios */}
+              <button className="btn-pay-all" onClick={handleSubmit}>
+                pagar
+              </button>
+              </div>
             </>
           ) : (
             <p className="cart-empty">El carrito está vacío</p>
@@ -101,6 +160,9 @@ const Header = ({ productos, setProductos, total, setTotal, countProducts, setCo
     </header>
   );
 };
+
+/* cambios */
+
 
 export default Header;
 

@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
-    background-color: rgb(40, 40, 59);
+    background-color: rgb(154, 154, 183);
     
 }
 .ti{
@@ -22,7 +22,7 @@
 justify-content: space-between;
     padding-left: 20px;
     margin-left: 20%;
-}
+} 
 .moveCar{
 margin-left: 90%;
 margin-bottom: 5%;
@@ -31,11 +31,11 @@ margin-bottom: 5%;
     width: 50%;
     height: 50%;
 }
-.decorar_inside__titles{
+/* .decorar_inside__titles{
     font-size: 30px;
     padding-left: 80px;
     font-weight: bold;
-}
+} */
 .editar_inputBusqueda{
     width: 90%;
   border-radius: 20px

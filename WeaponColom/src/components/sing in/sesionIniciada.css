@@ -13,7 +13,7 @@ body{
  display: flex;
  flex-direction: column;
  background-color: white;
-width: 70%;
+width: 75%;
  height: 500px;
  margin-left: 15%;
  
@@ -62,15 +62,19 @@ width: 70%;
     gap: 3%;
     background-color: rgb(86, 80, 80);
     height: 100px;
+    align-content:space-between
     
 }
 .left{
     display: flex;
     flex-direction: row;
-    gap: 3%;
+    align-items: center;
+    align-content:space-between
+ /*    margin: 0;  */
+/*     gap: 3%;
     width: 70%;
     padding-top: 2%;
-    padding-left: 2%;
+    padding-left: 2%; */
     
 }
 .eddit_hr_hr{
@@ -99,7 +103,7 @@ height: 30px;
 width: 350px;
 margin-top: 10px;
 }
-.edit-Search{
+/* .edit-Search{
     width: 15%;
     height: 36%;
     margin-left: -19px;
@@ -107,7 +111,7 @@ margin-top: 10px;
     background-color: black;
     color: white;
     
-}
+} */
 .edit_reDIRE{
     display: flex;
     flex-direction: row;
@@ -127,63 +131,83 @@ background-color: white;
 }
 .container{
     display: flex;
-    flex-direction: column;
-    width: 30%;
-    height: 100%;
-    background-color: rgb(235, 226, 226);
-    margin-top: -15px;
+    gap: 30.5px;
+    width: 100%;
+    height: 500px;
+    flex-wrap: wrap;
+    align-items: center;
     overflow-y: auto;
+    scrollbar-width: thin;
 }
 .one{
     display: flex;
     flex-direction: row;
-    
-    height: 100%;
+    background-color: rgb(105, 105, 105);
+
 }
 .checkbox{
     margin-left: -85%;
 }
-.decorar_insides1{
+.card-weapon{
     display: flex;
     flex-direction: column;
-    background-color: white;
-    flex-wrap: wrap;
-    width: 60%;
+    background-color: rgb(255, 255, 255);
+    align-items: center;
+    min-width: 340px;
     font-size: 10px;
-    border-radius: 5%;
+    border-radius: 6px;
     box-shadow: -11px 0px 57px 4px rgba(161, 146, 146, 0.75);
--webkit-box-shadow: -11px 0px 57px 4px rgba(172, 155, 155, 0.75);
--moz-box-shadow: -11px 0px 57px 4px rgba(194, 171, 171, 0.75);
-justify-content: space-between;
-    padding-left: 20px;
-    margin-left: 25%;
+    -webkit-box-shadow: -11px 0px 57px 4px rgba(172, 155, 155, 0.75);
+    -moz-box-shadow: -11px 0px 57px 4px rgba(194, 171, 171, 0.75);
+}
+.card-weapon-title{
+    font-size: 15px;
+    text-wrap: nowrap;
+}
+.addCarrito1{
+   width: 100%;    
+   cursor: pointer;
+   height: 30px;
+   background-color: rgb(180, 180, 180);
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+.hello{
+    margin: 0;
+    padding: 0;
+}
 
-   
+.card-weapon-image{
+    width: 200px;
+    height: 185px;
 }
-.decorar_insides1:hover{
-    background-color: aqua;
-}
-.edit_buton_Gustar{
-background-color: green;
-color: white;
-width: 20%;
-}
-.edit_buton_noGustar{
- background-color: red;
- color: white;
- width: 20%;
 
+.card-weapon-image img{
+   object-fit: cover;
 }
+
 .edit_home_profile{
     width: 35%;
     height: 35%;
     margin-left: -5%;
     margin-top: 3%;
 }
-.botonVisualizar{
-    width: 20%;
-}
+
 .hi{
     width: 100px;
     height: 100px;
+}
+
+
+.block-stars{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 6;
+    width: 120px;
+}
+
+.number-start{
+    font-size: 15px;
 }
