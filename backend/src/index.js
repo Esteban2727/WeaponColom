@@ -27,6 +27,7 @@ import {
   sendComments,
 } from "./consultas.js";
 import { verify } from "crypto";
+import { Console } from "console";
 
 const app = express();
 
@@ -103,8 +104,9 @@ app.post("/recuperarPassword", async (req, res) => {
     recuperada(datosRecibidos);
   } else {
     const codigoAleatorio = Math.floor(10000 + Math.random() * 90000);
-
+    console.log("llego")
     RecuperarPassword(datosRecibidos, codigoAleatorio);
+    console.log(RecuperarPassword)
 
     const infom = `<h1>enviando correo
                 <ul>
@@ -126,7 +128,7 @@ app.post("/recuperarPassword", async (req, res) => {
     });
 
     const info = await transporter.sendMail({
-      from: '"Weapon Colom" <escastr@gmail.com>',
+      from: '"GAMEHEAVER" <escastr@gmail.com>',
       to: datosRecibidos.correo,
       subject: "Recuperación de contraseña", //
       html: infom,

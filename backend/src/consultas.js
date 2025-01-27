@@ -98,6 +98,7 @@ async function RecuperarPassword(data, codigo1) {
         "insert into recuperarpass (idusuario,codigogenerado) values($1,$2)",
         [id.rows[0].idusuario, codigo1]
       );
+      console.log("hecho con exito")
       client.release();
     } else {
       console.log("correo no se encuentra en la base de datos");

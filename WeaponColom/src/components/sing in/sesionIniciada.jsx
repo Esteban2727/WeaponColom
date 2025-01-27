@@ -207,7 +207,7 @@ export default function PageOne() {
                   <div className="addCarrito1" >
                     <BsCart4
                       size={25}
-                      
+                      onClick={()=>onAddProducts(producto)}
                     />
                   </div>
                 </div>
